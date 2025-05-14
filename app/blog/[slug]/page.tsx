@@ -13,7 +13,7 @@ async function getData(slug: string) {
         body
     }[0]`
 
-    const data = await client.fetch(Article_Query)
+    const data = await client.fetch(Article_Query, {}, {next: { revalidate: 60}})
     return data;
 }
 
